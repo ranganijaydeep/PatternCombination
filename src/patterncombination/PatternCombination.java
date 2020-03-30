@@ -5,7 +5,7 @@
  */
 package patterncombination;
 
-import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,9 +26,19 @@ public class PatternCombination extends JFrame  {
     }
     
     public  void GUI(){
+        
+        JFrame mainframe =new JFrame();
+         mainframe.setVisible(true);
+         mainframe.setSize(300,300);
+        
         JPanel mainpanel= new JPanel();
+        mainpanel.setVisible(true);
+        mainpanel.setSize(250, 250);
         JButton firstbutton=new JButton();
         mainpanel.add(firstbutton);
+        
+        mainframe.add(mainpanel);
+        
         this.add(mainpanel);
          System.out.println(mainpanel);
         
