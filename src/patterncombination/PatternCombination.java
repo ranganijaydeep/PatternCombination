@@ -34,12 +34,19 @@ public class PatternCombination extends JFrame  {
         JPanel mainpanel= new JPanel();
         mainpanel.setVisible(true);
         mainpanel.setSize(250, 250);
-        JButton firstbutton=new JButton();
+        JButton firstbutton=new JButton("Hii Test");
+        
+         // adding  button to main panel 
         mainpanel.add(firstbutton);
         
+        //adding main panel to  frame 
         mainframe.add(mainpanel);
         
-        this.add(mainpanel);
+       
+        
+        this.add(mainframe);
+        
+        
          System.out.println(mainpanel);
         
         
