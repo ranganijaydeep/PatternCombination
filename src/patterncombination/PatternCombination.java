@@ -5,17 +5,39 @@
  */
 package patterncombination;
 
+import java.awt.Dimension;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Jaydeep Rangani
  */
-public class PatternCombination {
+public class PatternCombination extends JFrame  {
 
     /**
      * @param args the command line arguments
      */
+    public PatternCombination(){
+        GUI();
+        
+        
+    }
+    
+    public  void GUI(){
+        JPanel mainpanel= new JPanel();
+        JButton firstbutton=new JButton();
+        mainpanel.add(firstbutton);
+        this.add(mainpanel);
+         System.out.println(mainpanel);
+        
+        
+    }
+        
     public static void main(String[] args) {
-        // TODO code application logic here
+        new PatternCombination(); 
+        
     }
     
 }
