@@ -16,11 +16,11 @@ import javax.swing.JPanel;
  */
 public class PatternCombination extends JFrame  {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public PatternCombination(){
-        GUI();
+       // GUI();
+        DBconnect connect= new DBconnect();
+        connect.getData();
         
         
     }
