@@ -5,55 +5,42 @@
  */
 package patterncombination;
 
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 /**
  *
  * @author Jaydeep Rangani
  */
-public class PatternCombination extends JFrame  {
+public class PatternCombination   {
 
     
-    public PatternCombination(){
-       // GUI();
-        DBconnect connect= new DBconnect();
-        connect.getData();
+    public PatternCombination(){     
+        //int to get nuber for selcection 
+        int sn =1 ;
+      //  DBconnect connect= new DBconnect();
+        System.out.println("1. Show all country ");
+        System.out.println("2. Retrieve records by country name");
+        System.out.println("3. Retrieve records by country code ");
+        System.out.println("4. Add new records into the database ");
+        System.out.println("Enter Numer to select  :" + sn );
         
-        
+         if (sn==1){
+             //DBconnect connect= new DBconnect();
+            // connect.getAllCountryData();
+         }
+         if (sn==2){
+             System.out.println("2. Retrieve records by country name");
+         }
+         if (sn==3){
+             System.out.println("3. Retrieve records by country code ");
+         }
+         if (sn==4){
+             System.out.println("4. Add new records into the database ");
+         }else{
+             System.out.println(" Enter valid number :  ");
+         }
+         
     }
-    
-    public  void GUI(){
-        
-        JFrame mainframe =new JFrame();
-         mainframe.setVisible(true);
-         mainframe.setSize(300,300);
-        
-        JPanel mainpanel= new JPanel();
-        mainpanel.setVisible(true);
-        mainpanel.setSize(250, 250);
-        JButton firstbutton=new JButton("Hii Test");
-        
-         // adding  button to main panel 
-        mainpanel.add(firstbutton);
-        
-        //adding main panel to  frame 
-        mainframe.add(mainpanel);
-        
-       
-        
-        this.add(mainframe);
-        
-        
-         System.out.println(mainpanel);
-        
-        
-    }
-        
     public static void main(String[] args) {
-        new PatternCombination(); 
+        PatternCombination patternCombination = new PatternCombination(); 
         
     }
     
