@@ -14,9 +14,8 @@ import java.util.ArrayList;
  */
 public  class CountryDAO implements CountryINT {
     
-
-    @Override
-    public ArrayList<Country> getCountries() {
+        @Override
+         public ArrayList<Country> getCountries() {
         
        
 		
@@ -59,8 +58,8 @@ public  class CountryDAO implements CountryINT {
 		return Countries;
 	}
     
-    @Override
-	public Country SearchCountrybycode(int code) {
+        @Override
+        public Country SearchCountrybycode(int code) {
 		
 		// CREATING THE OBJECT THAT WE'RE GOING TO RETURN
 		Country cntry = null;
@@ -96,6 +95,7 @@ public  class CountryDAO implements CountryINT {
 		// RETURN THE COUNTRY 
 		return cntry;
 	}
+        
         @Override
         public Country SearchCountrybyname(String name){
             
@@ -138,11 +138,9 @@ public  class CountryDAO implements CountryINT {
                 return cntry;
             
         }
-        
-        
-        
+            
         @Override
-	public boolean insertCountry(Country country) {
+        public boolean insertCountry(Country country) {
 		
 		// ACCESSING THE DATABASE
 		DBconnect db = new DBconnect();
@@ -166,10 +164,8 @@ public  class CountryDAO implements CountryINT {
 		
 		return result;
 	}
-        
-        
-       
-    }
+             
+ }
 
     
     
