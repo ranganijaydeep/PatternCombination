@@ -11,4 +11,8 @@ package patterncombination;
  */
 public class clientApp {
     
+    
+    
+    
+    
 }

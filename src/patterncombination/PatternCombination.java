@@ -50,8 +50,10 @@ public class PatternCombination   {
          //        System.out.println(noc);
        
           
-        Country newentry = new Country( "999","zzzzz", "99999", "Heaven","xxxx");
-         
+        Country newentry = new Country( "990","jaydeep", "Asia", "99999","xx");
+       
+		
+		System.out.println(data.insertCountry(newentry));
          
     }
     

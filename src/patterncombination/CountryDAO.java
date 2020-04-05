@@ -146,14 +146,14 @@ public  class CountryDAO implements CountryINT {
 		DBconnect db = new DBconnect();
 		
 		// FROM THE OBJECT, GETTING THE DATA
-                                String code =country.getCode();
-		String name = country.getName();
-		String continent= country.getContinent();
-		String surfacearea  = country.getSurfacearea();
-		String headofstate = country.getHeadofstate();
+                                String Code =country.getCode();
+		String Name = country.getName();
+		String Continent= country.getContinent();
+		String SurfaceArea  = country.getSurfacearea();
+		String HeadOfState = country.getHeadofstate();
                 
 		// THIS METHOD IS IN CHARGE OF CREATING THE QUERY
-		String query = "insert into country (code,name, continent, SurfaceArea, HaeadOfState) values ("+code +",'" + name + "', '" + continent + "'," + surfacearea+",'"+headofstate+"')";
+		String query = "insert into country (Code,name, Continent, SurfaceArea,HeadOfState) values ("+Code +",'" + Name + "','" + Continent +"'," + SurfaceArea+",'"+HeadOfState+"')";
 		
 		// REQUESTION TO SAVE THE DATA
 		boolean result = db.save(query);
