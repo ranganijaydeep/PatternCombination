@@ -10,14 +10,14 @@ package patterncombination;
  * @author Jaydeep Rangani
  */
 public class Country  {
-    private int code; 
+    private String code; // well i did int but database has errors so i can not use int 
     private String name;
     private String continent;
     private float surfacearea;
     private String headofstate;
     
     
-     public Country (int code,String name,String continent,float surfacearea,String headofstate) {
+     public Country (String code,String name,String continent,float surfacearea,String headofstate) {
         this.code=code;
         this.name=name;
         this.continent=continent;
@@ -27,13 +27,13 @@ public class Country  {
 
       
   
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
     
     
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

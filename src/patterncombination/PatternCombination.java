@@ -37,9 +37,9 @@ public class PatternCombination   {
          
             
         
-        ArrayList<Country> countries = data.getCountries();
+        ArrayList<Country> Countries = data.getCountries();
         
-        for(Country c : countries){
+        for(Country c : Countries){
             System.out.print(c);
         }
                  
@@ -48,8 +48,8 @@ public class PatternCombination   {
          //     Country c = data.SearchCountrybycode(353);
           //       System.out.println(c);
         
-        Country noc = data.SearchCountrybyname("ireland");
-                 System.out.println(noc);
+       // Country noc = data.SearchCountrybyname("ireland");
+         //        System.out.println(noc);
        
        
        

@@ -19,31 +19,31 @@ public  class CountryDAO implements CountryINT {
         
        
 		
-		// CREATE THE ARRAYLIST TO PUT ALL THE CUSTOMERS
-		// THAT ARE GOING TO BE RETURNED
-		ArrayList<Country> Countries = new ArrayList<Country>();
+            // CREATE THE ARRAYLIST TO PUT ALL THE CUSTOMERS
+            // THAT ARE GOING TO BE RETURNED
+	ArrayList<Country> Countries = new ArrayList<Country>();
 		
-		// THIS IS THE METHOD IN CHARGE OF CREATE THE QUERY
-		String query = "select  *  from  country;";
+	// THIS IS THE METHOD IN CHARGE OF CREATE THE QUERY
+	String query = "select  *  from  country;";
 		
-		// ACCESSING THE DATABASE
-		DBconnect db = new DBconnect();
+	// ACCESSING THE DATABASE
+	DBconnect db = new DBconnect();
 		
-		// QUERYING THE DATABASE
-		ResultSet rs =db.select(query);
+	// QUERYING THE DATABASE
+	ResultSet rs =db.select(query);
 		
-		// LOOP OVER THE RESULT SET
-		try {
-			while( rs.next() ) {
-				// FOR EACH ONE OF THE VALUES, WE WANT TO
-				// GET THE ATTRIBTUES
-				int code= rs.getInt(1);
-				String name = rs.getString(2);
-				String Continent = rs.getString(3);
-				float surfacearea = rs.getFloat(4);
-                                                                String headofState=rs.getString(5);
-				
-				Countries.add(new Country(code, name, Continent, surfacearea,headofState));	
+	// LOOP OVER THE RESULT SET
+	try {
+		while( rs.next() ) {
+		// FOR EACH ONE OF THE VALUES, WE WANT TO
+		// GET THE ATTRIBTUES
+		String Code= rs.getString(1);
+		String Name = rs.getString(2);
+		String Continent = rs.getString(3);
+		float SurfaceArea = rs.getFloat(4);
+                                String HeadofState=rs.getString(5);
+			
+		Countries.add(new Country(Code, Name, Continent, SurfaceArea, HeadofState));	
 			}
 			
 			// CLOSING THE CONNECTION TO THE DATABASE
@@ -59,7 +59,7 @@ public  class CountryDAO implements CountryINT {
 	}
     
         @Override
-        public Country SearchCountrybycode(int code) {
+        public Country SearchCountrybycode(String code) {
 		
 		// CREATING THE OBJECT THAT WE'RE GOING TO RETURN
 		Country cntry = null;
@@ -77,7 +77,7 @@ public  class CountryDAO implements CountryINT {
 		// OF COUNTRY
 		try {
 			rs.next();
-                                                code=rs.getInt(1);
+                                                code=rs.getString(1);
                                                 String name = rs.getString(2);
 			String continent = rs.getString(3);
 			float surfacearea   = rs.getFloat(4);
@@ -118,7 +118,7 @@ public  class CountryDAO implements CountryINT {
 		// OF COUNTRY
 		try {
 			rs.next();
-                                                int code=rs.getInt(1);
+                                                String code=rs.getString(1);
                                                 name = rs.getString(2);
 			String continent = rs.getString(3);
 			float surfacearea   = rs.getFloat(4);
@@ -146,7 +146,7 @@ public  class CountryDAO implements CountryINT {
 		DBconnect db = new DBconnect();
 		
 		// FROM THE OBJECT, GETTING THE DATA
-                                int code =country.getCode();
+                                String code =country.getCode();
 		String name = country.getName();
 		String continent= country.getContinent();
 		float surfacearea  = country.getSurfacearea();

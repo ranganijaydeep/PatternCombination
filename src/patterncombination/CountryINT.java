@@ -15,7 +15,7 @@ public interface CountryINT {
 
    public ArrayList<Country> getCountries() ;
    
-   public Country SearchCountrybycode(int code);
+   public Country SearchCountrybycode(String code);
    
    public Country SearchCountrybyname(String name);
     
