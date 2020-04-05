@@ -24,7 +24,7 @@ public  class CountryDAO implements CountryINT {
 		ArrayList<Country> Countries = new ArrayList<Country>();
 		
 		// THIS IS THE METHOD IN CHARGE OF CREATE THE QUERY
-		String query = "select * from country";
+		String query = "select  *  from  country;";
 		
 		// ACCESSING THE DATABASE
 		DBconnect db = new DBconnect();
@@ -104,7 +104,7 @@ public  class CountryDAO implements CountryINT {
             
             
             // THIS METHOD IS IN CHAGE OF CREATING THE QUERY
-		String query = "select * from country where name = " + name;
+		String query = "select * from country where name = '" + name +"'";
             
                 // ACCESSING THE DATABASE
 		DBconnect db = new DBconnect();
@@ -153,8 +153,7 @@ public  class CountryDAO implements CountryINT {
 		String headofstate = country.getHeadofstate();
                 
 		// THIS METHOD IS IN CHARGE OF CREATING THE QUERY
-		String query = "insert into country (code , name, continent, SurfaceArea, HaeadOfState) values  "
-                        + "("+code +"," + name + ", " + continent + "," + surfacearea+","+headofstate+" );";
+		String query = "insert into country (code,name, continent, SurfaceArea, HaeadOfState) values ("+code +",'" + name + "', '" + continent + "'," + surfacearea+",'"+headofstate+"')";
 		
 		// REQUESTION TO SAVE THE DATA
 		boolean result = db.save(query);

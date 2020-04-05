@@ -17,7 +17,7 @@ public class Country  {
     private String headofstate;
     
     
-     public Country (int code,String name,String continent,float surfacearea,String  headofstate) {
+     public Country (int code,String name,String continent,float surfacearea,String headofstate) {
         this.code=code;
         this.name=name;
         this.continent=continent;
@@ -84,7 +84,10 @@ public class Country  {
         this.headofstate = headofstate;
     }
     
-    
+    @Override
+	public String toString() {
+		return "Code: " + code + ", NAME: " + name + ", Continent: " + continent + ", SurfaceArea: " + surfacearea + ", HeadOfState: " + headofstate;
+	}
     
     
 }

@@ -16,7 +16,7 @@ import java.sql.*;
 public class DBconnect {
      
    // THIS PART OF THE CODE REMAINS THE SAME
-	private String db = "jdbc:mysql://52.50.23.197:3306/customer";
+	private String db = "jdbc:mysql://52.50.23.197:3306/world";
 	private String un = "cctstudent";
 	private String pw = "Pass1234!";
 	
