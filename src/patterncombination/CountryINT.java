@@ -13,9 +13,13 @@ import java.util.ArrayList;
  */
 public interface CountryINT {
 
-   public ArrayList<Country> getCountries() {}
+   public ArrayList<Country> getCountries() ;
+   
+   public Country SearchCountrybycode(int code);
+   
+   public Country SearchCountrybyname(String name);
     
-    
+   public boolean insertCountry(Country country);
     
    
 }

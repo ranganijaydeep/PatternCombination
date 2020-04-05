@@ -96,20 +96,32 @@ public  class CountryDAO implements CountryINT {
 		// RETURN THE COUNTRY 
 		return cntry;
 	}
+        @Override
+        public Country SearchCountrybyname(String name){
+            
+            
+            
+            
+        }
+        
+        
         
         @Override
-	public boolean saveCustomer(Customer customer) {
+	public boolean insertCountry(Country country) {
 		
 		// ACCESSING THE DATABASE
 		DBconnect db = new DBconnect();
 		
 		// FROM THE OBJECT, GETTING THE DATA
-		String name = customer.getName();
-		int phoneNumber = customer.getPhoneNumber();
-		String address = customer.getAddress();
-		
+                                int code =country.getCode();
+		String name = country.getName();
+		String continent= country.getContinent();
+		float surfacearea  = country.getSurfacearea();
+		String headofstate = country.getHeadofstate();
+                
 		// THIS METHOD IS IN CHARGE OF CREATING THE QUERY
-		String query = "insert into customer (name, phonenumber, address) values ('" + name + "', " + phoneNumber + ", '" + address + "')";
+		String query = "insert into country (code , name, continent, SurfaceArea, HaeadOfState) values  "
+                        + "("+code +"," + name + ", " + continent + "," + surfacearea+","+headofstate+" );";
 		
 		// REQUESTION TO SAVE THE DATA
 		boolean result = db.save(query);

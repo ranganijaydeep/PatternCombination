@@ -14,10 +14,10 @@ public class Country  {
     private String name;
     private String continent;
     private float surfacearea;
-    private char headofstate;
+    private String headofstate;
     
     
-     public Country (int code,String name,String continent,float surfacearea,char headofstate) {
+     public Country (int code,String name,String continent,float surfacearea,String  headofstate) {
         this.code=code;
         this.name=name;
         this.continent=continent;
@@ -25,11 +25,7 @@ public class Country  {
         this.headofstate=headofstate;     
      }
 
-    Country(int code, String name, String Continent, float Surfacearea, String headofState) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
+      
   
     public int getCode() {
         return code;
@@ -78,13 +74,13 @@ public class Country  {
 
    
   
-    public char getHeadofstate() {
+    public String getHeadofstate() {
         return headofstate;
     }
 
     
    
-    public void setHeadofstate(char headofstate) {
+    public void setHeadofstate(String headofstate) {
         this.headofstate = headofstate;
     }
     
