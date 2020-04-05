@@ -14,7 +14,6 @@ import java.util.ArrayList;
  */
 public  class CountryDAO implements CountryINT {
     
-	
 
     @Override
     public ArrayList<Country> getCountries() {
