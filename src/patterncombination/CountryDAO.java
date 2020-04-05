@@ -67,7 +67,7 @@ public  class CountryDAO implements CountryINT {
 		Country cntry = null;
 		
 		// THIS METHOD IS IN CHAGE OF CREATING THE QUERY
-		String query = "select * from country where id = " + code;
+		String query = "select * from country where code = " + code;
 		
 		// ACCESSING THE DATABASE
 		DBconnect db = new DBconnect();
@@ -99,8 +99,17 @@ public  class CountryDAO implements CountryINT {
         @Override
         public Country SearchCountrybyname(String name){
             
+            // CREATING THE OBJECT THAT WE'RE GOING TO RETURN
+		Country cntry = null;
             
             
+            // THIS METHOD IS IN CHAGE OF CREATING THE QUERY
+		String query = "select * from country where name = " + name;
+            
+                // ACCESSING THE DATABASE
+		DBconnect db = new DBconnect();
+            
+                return cntry;
             
         }
         
