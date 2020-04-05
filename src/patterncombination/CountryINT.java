@@ -5,11 +5,17 @@
  */
 package patterncombination;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jaydeep Rangani
  */
 public interface CountryINT {
 
+   public ArrayList<Country> getCountries() {}
+    
+    
+    
    
 }

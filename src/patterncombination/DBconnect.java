@@ -15,41 +15,27 @@ import java.sql.*;
  */
 public class DBconnect {
      
-    private Connection connection;
-    private Statement statement;
-    
-    
-    // public method to check database connection 
-    /*public DBconnect(){
-        try {
-            // getting jdbc driver from lib.
-            Class.forName("com.mysql.cj.jdbc.Driver");            
-            // creating and calling connection  elements
-            con = DriverManager.getConnection("jdbc:mysql://52.50.23.197:3306/world","cctstudent","Pass1234!"); 
-             st=con.createStatement(); // creating satatement through statement lib.
-           }catch (Exception ex){
-            System.out.println("Error :"+ex);
-        }
+   // THIS PART OF THE CODE REMAINS THE SAME
+	private String db = "jdbc:mysql://52.50.23.197:3306/customer";
+	private String un = "cctstudent";
+	private String pw = "Pass1234!";
+	
+	// NOW I'M MAKING THIS GUYS GLOBAL, TO BE ABLE TO ACCESS THEM
+	// FROM ANY OF THE METHODS
+	private Connection conn;
+	private Statement stmt;
         
-    }
-    */
-    
-            // Creating Variable to setup sql query object 
-            private String database = "jdbc:mysql://apontejaj.com:3306/customer";
-            private String username = "cctstudent";
-            private String password = "Pass1234!";
-    
-            public DBconnect() {
-		
-		// NOW THE CONSTRUCTOR ONLY HAS TO CREATE THE CONNECTION 
+         public DBconnect(){
+        
+                                // NOW THE CONSTRUCTOR ONLY HAS TO CREATE THE CONNECTION 
 		// AND THE STATEMENT
 		try{
 			
-		// Get a connection to the database
-		connection = DriverManager.getConnection( database, username, password ) ;
+			// Get a connection to the database
+			conn = DriverManager.getConnection( db, un, pw ) ;
 
-		// Get a statement from the connection
-		statement = connection.createStatement() ;
+			// Get a statement from the connection
+			stmt = conn.createStatement() ;
 			
 		}
 		catch( SQLException se ){
@@ -67,22 +53,59 @@ public class DBconnect {
 		catch( Exception e ){
 			System.out.println( e ) ;
 		}
-	}
-	
-    
-    
-    // finnaly clossing sql method.
-    public void closing() {
+        }
+         
+         // THIS IS GOING TO BE A GENERIC METHOD TO DO
+	// ANY SELECT STATEMENT THAT WE PASS IN USING THE
+	// QUERY VARIABLE
+	public ResultSet select(String query) {
+		// Execute the query
+		ResultSet rs = null;
 		try {
-                    
-			statement.close(); //statement close 
-			connection.close(); //connection with database close
-			
+			 rs = stmt.executeQuery( query ) ;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		return rs;
 	}
-    
+         
+         
+         // THIS IS GOING TO BE A GENERIC METHOD TO DO
+	// ANY INSERT STATEMENT THAT WE PASS IN USING THE 
+	// QUERY VARIABLE
+	public boolean save(String query) {
+		
+		try {
+			
+			// NOTE THAT HERE WE WON'T NEED
+			// ANY RESULT SET, AS AN INSERT STATEMENT
+			// DOES NOT RETURN VALUES
+			stmt.execute( query );
+			return true;
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+		
+	}       
+         
+         
+         // AND FINALLY WE HAVE A SEPARATE METHOD TO 
+	// CLOSE THE STATEMENT AND THE CONNECTION
+	public void closing() {
+		try {
+			stmt.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+                                    e.printStackTrace();
+		}
+		
+	}
+         
+         
+         
 }

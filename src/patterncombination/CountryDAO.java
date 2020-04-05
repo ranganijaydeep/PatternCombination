@@ -1,0 +1,130 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package patterncombination;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Jaydeep Rangani
+ */
+public  class CountryDAO implements CountryINT {
+    
+	
+
+    @Override
+    public ArrayList<Country> getCountries() {
+        
+       
+		
+		// CREATE THE ARRAYLIST TO PUT ALL THE CUSTOMERS
+		// THAT ARE GOING TO BE RETURNED
+		ArrayList<Country> Countries = new ArrayList<Country>();
+		
+		// THIS IS THE METHOD IN CHARGE OF CREATE THE QUERY
+		String query = "select * from country";
+		
+		// ACCESSING THE DATABASE
+		DBconnect db = new DBconnect();
+		
+		// QUERYING THE DATABASE
+		ResultSet rs =db.select(query);
+		
+		// LOOP OVER THE RESULT SET
+		try {
+			while( rs.next() ) {
+				// FOR EACH ONE OF THE VALUES, WE WANT TO
+				// GET THE ATTRIBTUES
+				int code= rs.getInt(1);
+				String name = rs.getString(2);
+				String Continent = rs.getString(3);
+				float surfacearea = rs.getFloat(4);
+                                                                String headofState=rs.getString(5);
+				
+				Countries.add(new Country(code, name, Continent, surfacearea,headofState));	
+			}
+			
+			// CLOSING THE CONNECTION TO THE DATABASE
+			db.closing();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// RETURN THE ARRAYLIST WITH ALL THE CUSTOMERS
+		return Countries;
+	}
+    
+    @Override
+	public Country SearchCountrybycode(int code) {
+		
+		// CREATING THE OBJECT THAT WE'RE GOING TO RETURN
+		Country cntry = null;
+		
+		// THIS METHOD IS IN CHAGE OF CREATING THE QUERY
+		String query = "select * from country where id = " + code;
+		
+		// ACCESSING THE DATABASE
+		DBconnect db = new DBconnect();
+		
+		// QUERYING THE DATABASE
+		ResultSet rs = db.select(query);
+		
+		// WITH THE RESULT GET THE DATA AND PUT IT IN THE INSTANCE 
+		// OF COUNTRY
+		try {
+			rs.next();
+			String name = rs.getString(2);
+			String continent = rs.getString(3);
+			float surfacearea   = rs.getFloat(4);
+                                                String headofstate = rs.getString(5);
+			cntry = new Country(code, name, continent, surfacearea,headofstate);
+			
+			// CLOSING THE CONNECTION FROM THE DATABASE
+			db.closing();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		// RETURN THE COUNTRY 
+		return cntry;
+	}
+        
+        @Override
+	public boolean saveCustomer(Customer customer) {
+		
+		// ACCESSING THE DATABASE
+		DBconnect db = new DBconnect();
+		
+		// FROM THE OBJECT, GETTING THE DATA
+		String name = customer.getName();
+		int phoneNumber = customer.getPhoneNumber();
+		String address = customer.getAddress();
+		
+		// THIS METHOD IS IN CHARGE OF CREATING THE QUERY
+		String query = "insert into customer (name, phonenumber, address) values ('" + name + "', " + phoneNumber + ", '" + address + "')";
+		
+		// REQUESTION TO SAVE THE DATA
+		boolean result = db.save(query);
+		
+		// CLOSING THE DATABASE
+		db.closing();
+		
+		return result;
+	}
+        
+        
+       
+    }
+
+    
+    
+    
+

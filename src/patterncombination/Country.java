@@ -9,7 +9,7 @@ package patterncombination;
  *
  * @author Jaydeep Rangani
  */
-public class Country implements CountryINT {
+public class Country  {
     private int code; 
     private String name;
     private String continent;
@@ -17,18 +17,17 @@ public class Country implements CountryINT {
     private char headofstate;
     
     
- public Country (int code,String name,String continent,float surfacearea,char headofstate) {
-     this.code=code;
-     this.name=name;
-     this.continent=continent;
-     this.surfacearea=surfacearea;
-     this.headofstate=headofstate;
-     
-     
-     
-     
-     
- }
+     public Country (int code,String name,String continent,float surfacearea,char headofstate) {
+        this.code=code;
+        this.name=name;
+        this.continent=continent;
+        this.surfacearea=surfacearea;
+        this.headofstate=headofstate;     
+     }
+
+    Country(int code, String name, String Continent, float Surfacearea, String headofState) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
    
   
