@@ -1,8 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//JAYDEEP RANGANI 2017016
+// reference .. major part from class notes and Moodle Labs Projects. 
+// credit (teacher): amilcar aponte ..
 package patterncombination;
 
 import java.sql.*;
@@ -14,29 +12,29 @@ import java.util.ArrayList;
  */
 public  class CountryDAO implements CountryINT {
     
-        @Override
+    
+        @Override // THIS METHOD IS TO CREATE LIST OF ALL COUNTRY AND DEFULL DETAIL ABOUT IT.
          public ArrayList<Country> getCountries() {
         
        
 		
-            // CREATE THE ARRAYLIST TO PUT ALL THE CUSTOMERS
-            // THAT ARE GOING TO BE RETURNED
+            // CREATING ARRAY LIST TO PULL COUNTRY LIST 
+            // THAT ARE GOING TO BE DISPLAYED
 	ArrayList<Country> Countries = new ArrayList<Country>();
 		
-	// THIS IS THE METHOD IN CHARGE OF CREATE THE QUERY
+	// THIS IS THE METHOD TO CREATE MAIN QUERY (IN CHARGE)
 	String query = "select  *  from  country;";
 		
-	// ACCESSING THE DATABASE
+	// CONNECTING DATABSE 
 	DBconnect db = new DBconnect();
 		
-	// QUERYING THE DATABASE
+	// RUNNING QUERY ON DATABASE 
 	ResultSet rs =db.select(query);
 		
-	// LOOP OVER THE RESULT SET
+	// LOOP FOR QUERY RESULT SET 
 	try {
 		while( rs.next() ) {
-		// FOR EACH ONE OF THE VALUES, WE WANT TO
-		// GET THE ATTRIBTUES
+		// FOR EACH VALUE WE WANT TO PULL DATA 
 		String Code= rs.getString(1);
 		String Name = rs.getString(2);
 		String Continent = rs.getString(3);
@@ -46,7 +44,7 @@ public  class CountryDAO implements CountryINT {
 		Countries.add(new Country(Code, Name, Continent, SurfaceArea, HeadofState));	
 			}
 			
-			// CLOSING THE CONNECTION TO THE DATABASE
+			// CLOSING CONNECTION 
 			db.closing();
 			
 		} catch (SQLException e) {
@@ -54,27 +52,26 @@ public  class CountryDAO implements CountryINT {
 			e.printStackTrace();
 		}
 
-		// RETURN THE ARRAYLIST WITH ALL THE CUSTOMERS
+		// RETURN THE ARRAYLISTS
 		return Countries;
 	}
     
-        @Override
+        @Override ////THIS METHOD IS TO GET ALL DETAIL ABOUT COUNTRY BY COUNTRY CODE 
         public Country SearchCountrybycode(String code) {
 		
-		// CREATING THE OBJECT THAT WE'RE GOING TO RETURN
+		// CREATING OBJECTS THAT IS GOING TO BE RETURN 
 		Country cntry = null;
 		
-		// THIS METHOD IS IN CHAGE OF CREATING THE QUERY
+		// QUERY METHOD IN CHARGE MAIN QUERY 
 		String query = "select * from country where code = " + code;
 		
-		// ACCESSING THE DATABASE
+		// CONNECTING DATABASE 
 		DBconnect db = new DBconnect();
 		
-		// QUERYING THE DATABASE
+		// RUNNING QUERY 
 		ResultSet rs = db.select(query);
 		
-		// WITH THE RESULT GET THE DATA AND PUT IT IN THE INSTANCE 
-		// OF COUNTRY
+		// GETTING DATA THROUGH RESULT SET AND SETTING IN COUNTRY INTERFACE 
 		try {
 			rs.next();
                                                 code=rs.getString(1);
@@ -84,7 +81,7 @@ public  class CountryDAO implements CountryINT {
                                                 String headofstate = rs.getString(5);
 			cntry = new Country(code, name, continent, surfacearea,headofstate);
 			
-			// CLOSING THE CONNECTION FROM THE DATABASE
+			// CLOSING THE CONNECTION 
 			db.closing();
 			
 		} catch (SQLException e) {
@@ -96,26 +93,25 @@ public  class CountryDAO implements CountryINT {
 		return cntry;
 	}
         
-        @Override
+        @Override //THIS METHOD IS TO GET ALL DETAIL ABOUT COUNTRY BY NAME
         public Country SearchCountrybyname(String name){
             
-            // CREATING THE OBJECT THAT WE'RE GOING TO RETURN
+            // RETURNBALE OBJECT 
 		Country cntry = null;
             
             
-            // THIS METHOD IS IN CHAGE OF CREATING THE QUERY
+            // MAIN QUERY 
 		String query = "select * from country where name = '" + name +"'";
             
-                // ACCESSING THE DATABASE
+                // CONNECING DATABASE 
 		DBconnect db = new DBconnect();
             
                 
-                // QUERYING THE DATABASE
+                // QUERY RUNNING
 		ResultSet rs = db.select(query);
                 
                 
-		// WITH THE RESULT GET THE DATA AND PUT IT IN THE INSTANCE 
-		// OF COUNTRY
+		// GETTING DATA AND SETTING IN COUNTRY INTERFACE.
 		try {
 			rs.next();
                                                 String code=rs.getString(1);
@@ -139,7 +135,7 @@ public  class CountryDAO implements CountryINT {
             
         }
             
-        @Override
+        @Override // THIS METHOD IS TO INSERTING COUJNRTY IN DATABASE 
         public boolean insertCountry(Country country) {
 		
 		// ACCESSING THE DATABASE
@@ -152,10 +148,10 @@ public  class CountryDAO implements CountryINT {
 		String SurfaceArea  = country.getSurfacearea();
 		String HeadOfState = country.getHeadofstate();
                 
-		// THIS METHOD IS IN CHARGE OF CREATING THE QUERY
+		// MAIN QUERY 
 		String query = "insert into country (Code,name, Continent, SurfaceArea,HeadOfState) values ("+Code +",'" + Name + "','" + Continent +"'," + SurfaceArea+",'"+HeadOfState+"')";
 		
-		// REQUESTION TO SAVE THE DATA
+		// REQUEST TO SAVE QUERY DATA
 		boolean result = db.save(query);
 		
 		// CLOSING THE DATABASE

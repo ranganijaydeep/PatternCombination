@@ -1,14 +1,14 @@
+//JAYDEEP RANGANI 2017016
+// reference .. this class is majority part from class notes and Moodle Labs Projects. 
+// credit (teacher): amilcar aponte ..
+
+
 
 import java.util.ArrayList;
 import patterncombination.Country;
 import patterncombination.CountryDAO;
 import patterncombination.CountryINT;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 
 /**

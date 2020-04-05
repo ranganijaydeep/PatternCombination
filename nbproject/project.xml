@@ -12,7 +12,9 @@
             </test-roots>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>CountryInterface</word>
             <word>headofstate</word>
+            <word>Mooddle</word>
             <word>surfacearea</word>
         </spellchecker-wordlist>
     </configuration>
