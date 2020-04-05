@@ -10,8 +10,10 @@ package patterncombination;
  * @author Jaydeep Rangani
  */
 public class Country  {
+    
+    //Steeing up all object for each row 
     private String code; // well i did int but database has errors so i can not use int 
-    private String name;
+    private String name;//  
     private String continent;
     private String surfacearea;
     private String headofstate;
@@ -28,7 +30,7 @@ public class Country  {
     
 
       
-  
+  // setting getter and seeter method to uses and encapsulatiting DAO 
     public String getCode() {
         return code;
     }

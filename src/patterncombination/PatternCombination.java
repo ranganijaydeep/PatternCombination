@@ -27,7 +27,7 @@ public class PatternCombination   {
       CountryINT  data= new CountryDAO();
          
             
-       //saasign array list to country data .. 
+       //assign array list to country data .. 
       ArrayList<Country> Countries = data.getCountries();
       
       //using for loop to get all country detail from database in squencial order.

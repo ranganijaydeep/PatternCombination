@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+// reference .. this class is majority part from class notes and Moodle Labs Projects. 
+// credit (teacher): amilcar aponte ..
+
 package patterncombination;
 
 
@@ -15,13 +20,12 @@ import java.sql.*;
  */
 public class DBconnect {
      
-   // THIS PART OF THE CODE REMAINS THE SAME
+   // THIS PART OF THE CODE seeting sql stetement element
 	private String db = "jdbc:mysql://52.50.23.197:3306/world";
 	private String un = "cctstudent";
 	private String pw = "Pass1234!";
 	
-	// NOW I'M MAKING THIS GUYS GLOBAL, TO BE ABLE TO ACCESS THEM
-	// FROM ANY OF THE METHODS
+	// creating global object that can be access from anywhere in DAO 
 	private Connection conn;
 	private Statement stmt;
         
