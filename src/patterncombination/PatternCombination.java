@@ -23,12 +23,8 @@ public class PatternCombination   {
        // PatternCombination patternCombination = new PatternCombination(); 
          
         
-      //  DBconnect connect= new DBconnect();
-        System.out.println("1. Show all country ");
-        System.out.println("2. Retrieve records by country name");
-        System.out.println("3. Retrieve records by country code ");
-        System.out.println("4. Add new records into the database ");
-      //  System.out.println("Enter Numer to select  :" + sn );
+      
+       
         
       
       
@@ -37,23 +33,24 @@ public class PatternCombination   {
          
             
         
-      //  ArrayList<Country> Countries = data.getCountries();
+      ArrayList<Country> Countries = data.getCountries();
         
-      //  for(Country c : Countries){
-       //     System.out.println(c);
-     //   }
+      for(Country c : Countries){
+           System.out.println(c);
+        }
+      
+      
+      
                           
-         //     Country c = data.SearchCountrybycode(353);
-          //       System.out.println(c);
+        Country c = data.SearchCountrybycode("353");
+        System.out.println(c);
         
-       // Country noc = data.SearchCountrybyname("ireland");
-         //        System.out.println(noc);
+        Country noc = data.SearchCountrybyname("ireland");
+        System.out.println(noc);
        
           
         Country newentry = new Country( "990","jaydeep", "Asia", "99999","xx");
-       
-		
-		System.out.println(data.insertCountry(newentry));
+        System.out.println(data.insertCountry(newentry));
          
     }
     

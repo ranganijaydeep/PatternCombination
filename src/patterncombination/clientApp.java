@@ -13,6 +13,14 @@ public class clientApp {
     
     
     
+    public clientApp(){
+        System.out.println("1. Show all country ");
+        System.out.println("2. Retrieve records by country name");
+        System.out.println("3. Retrieve records by country code ");
+        System.out.println("4. Add new records into the database ");
+      //  System.out.println("Enter Numer to select  :" + sn );
+    }
+    
     
     
 }
