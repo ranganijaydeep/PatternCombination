@@ -13,17 +13,19 @@ public class Country  {
     private String code; // well i did int but database has errors so i can not use int 
     private String name;
     private String continent;
-    private float surfacearea;
+    private String surfacearea;
     private String headofstate;
     
     
-     public Country (String code,String name,String continent,float surfacearea,String headofstate) {
+     public Country (String code,String name,String continent,String surfacearea,String headofstate) {
         this.code=code;
         this.name=name;
         this.continent=continent;
         this.surfacearea=surfacearea;
         this.headofstate=headofstate;     
      }
+
+    
 
       
   
@@ -62,13 +64,13 @@ public class Country  {
 
    
     
-    public float getSurfacearea() {
+    public String getSurfacearea() {
         return surfacearea;
     }
 
     
 
-    public void setSurfacearea(float surfacearea) {
+    public void setSurfacearea(String surfacearea) {
         this.surfacearea = surfacearea;
     }
 

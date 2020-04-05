@@ -40,7 +40,7 @@ public  class CountryDAO implements CountryINT {
 		String Code= rs.getString(1);
 		String Name = rs.getString(2);
 		String Continent = rs.getString(3);
-		float SurfaceArea = rs.getFloat(4);
+		String SurfaceArea = rs.getString(4);
                                 String HeadofState=rs.getString(5);
 			
 		Countries.add(new Country(Code, Name, Continent, SurfaceArea, HeadofState));	
@@ -80,7 +80,7 @@ public  class CountryDAO implements CountryINT {
                                                 code=rs.getString(1);
                                                 String name = rs.getString(2);
 			String continent = rs.getString(3);
-			float surfacearea   = rs.getFloat(4);
+			String surfacearea   = rs.getString(4);
                                                 String headofstate = rs.getString(5);
 			cntry = new Country(code, name, continent, surfacearea,headofstate);
 			
@@ -121,7 +121,7 @@ public  class CountryDAO implements CountryINT {
                                                 String code=rs.getString(1);
                                                 name = rs.getString(2);
 			String continent = rs.getString(3);
-			float surfacearea   = rs.getFloat(4);
+			String surfacearea   = rs.getString(4);
                                                 String headofstate = rs.getString(5);
 			cntry = new Country(code, name, continent, surfacearea,headofstate);
 			
@@ -149,7 +149,7 @@ public  class CountryDAO implements CountryINT {
                                 String code =country.getCode();
 		String name = country.getName();
 		String continent= country.getContinent();
-		float surfacearea  = country.getSurfacearea();
+		String surfacearea  = country.getSurfacearea();
 		String headofstate = country.getHeadofstate();
                 
 		// THIS METHOD IS IN CHARGE OF CREATING THE QUERY

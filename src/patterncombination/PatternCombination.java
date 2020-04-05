@@ -37,14 +37,12 @@ public class PatternCombination   {
          
             
         
-        ArrayList<Country> Countries = data.getCountries();
+      //  ArrayList<Country> Countries = data.getCountries();
         
-        for(Country c : Countries){
-            System.out.println(c);
-        }
-                 
-        
-          
+      //  for(Country c : Countries){
+       //     System.out.println(c);
+     //   }
+                          
          //     Country c = data.SearchCountrybycode(353);
           //       System.out.println(c);
         
@@ -52,7 +50,9 @@ public class PatternCombination   {
          //        System.out.println(noc);
        
           
-        
+        Country newentry = new Country( "999","zzzzz", "99999", "Heaven","xxxx");
+         
+         
     }
     
 }
