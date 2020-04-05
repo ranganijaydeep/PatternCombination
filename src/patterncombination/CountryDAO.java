@@ -79,7 +79,8 @@ public  class CountryDAO implements CountryINT {
 		// OF COUNTRY
 		try {
 			rs.next();
-			String name = rs.getString(2);
+                                                code=rs.getInt(1);
+                                                String name = rs.getString(2);
 			String continent = rs.getString(3);
 			float surfacearea   = rs.getFloat(4);
                                                 String headofstate = rs.getString(5);
@@ -109,6 +110,32 @@ public  class CountryDAO implements CountryINT {
                 // ACCESSING THE DATABASE
 		DBconnect db = new DBconnect();
             
+                
+                // QUERYING THE DATABASE
+		ResultSet rs = db.select(query);
+                
+                
+		// WITH THE RESULT GET THE DATA AND PUT IT IN THE INSTANCE 
+		// OF COUNTRY
+		try {
+			rs.next();
+                                                int code=rs.getInt(1);
+                                                name = rs.getString(2);
+			String continent = rs.getString(3);
+			float surfacearea   = rs.getFloat(4);
+                                                String headofstate = rs.getString(5);
+			cntry = new Country(code, name, continent, surfacearea,headofstate);
+			
+			// CLOSING THE CONNECTION FROM THE DATABASE
+			db.closing();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+                
+                
                 return cntry;
             
         }
